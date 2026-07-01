@@ -1,0 +1,51 @@
+# IDE
+.idea/
+
+# Environment variables
+.env.*
+
+# Build artifacts
+build/
+dist/
+
+# Python cache
+*.egg-info/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Python environment
+.python-version
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Vector database
+vector_db/
+
+# Uploaded documents
+data/uploads/
+data/processed/
+
+# Test cache
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
