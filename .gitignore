@@ -49,3 +49,7 @@ data/processed/
 # Coverage
 .coverage
 htmlcov/
+
+.env
+venv/
+__pycache__/

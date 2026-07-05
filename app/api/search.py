@@ -1,16 +1,26 @@
 from fastapi import APIRouter
 
-from app.services.embeddings import create_embeddings
-from app.services.vector_store import search
+from app.models.request_models import SearchRequest
+from app.models.response_models import SearchResponse
+from app.services.rag_pipeline import ask_question
+from app.utils.logger import logger
 
 router = APIRouter(tags=["Search"])
 
 
-@router.get("/search")
-def semantic_search(query: str):
+@router.post(
+    "/search",
+    response_model=SearchResponse
+)
+def semantic_search(request: SearchRequest):
+    """
+    Perform semantic search using the RAG pipeline.
+    """
 
-    query_embedding = create_embeddings([query])[0]
+    logger.info(f"Received search query: {request.query}")
 
-    results = search(query_embedding)
+    response = ask_question(request.query)
 
-    return results
+    logger.info("Successfully generated response.")
+
+    return response
